@@ -59,7 +59,7 @@
 		
 
 		</tr>
-		<?php $sqldoc="SELECT  * FROM bookapp , parents   WHERE docID=('$doctorprofile') AND  parentID=UserID "  ;
+		<?php $sqldoc="SELECT  * FROM bookapp , parent   WHERE docID=('$doctorprofile') AND  parentID=UserID "  ;
 		$resultdoc=$mysqli->query($sqldoc);
 		if(mysqli_num_rows($resultdoc)>= 1){
 			while ($rowdoc=$resultdoc->fetch_assoc()) {
