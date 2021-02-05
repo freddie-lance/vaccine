@@ -86,7 +86,7 @@
 
 	$Patientsearch = mysqli_real_escape_string($mysqli,$_POST['Parentsearch']);
 	
-	$query="SELECT * FROM parents WHERE UserID=('$Parentsearch')";
+	$query="SELECT * FROM parent WHERE UserID=('$Parentsearch')";
 	$result2=mysqli_query($mysqli,$query);
 	
 
