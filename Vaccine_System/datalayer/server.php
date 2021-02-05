@@ -81,7 +81,7 @@ if(count($errors)==0){
 
 	$Password=md5($Password);
 
-	$sql = "INSERT INTO  parents (UserID, Name, Address, ContactNumber, Email, Password,ChildsName) VALUES ('$UserID','$Username','$Address','$ContactNumber','$Email','$Password','$ChildsName') ";
+	$sql = "INSERT INTO  parent (UserID, Name, Address, ContactNumber, Email, Password,ChildsName) VALUES ('$UserID','$Username','$Address','$ContactNumber','$Email','$Password','$ChildsName') ";
     
    
 
@@ -131,7 +131,7 @@ if (empty($Password)) {
 		
 	
 
-	$query="SELECT * FROM parents WHERE UserID=('$UserID')AND Password=('$Password')";
+	$query="SELECT * FROM parent WHERE UserID=('$UserID')AND Password=('$Password')";
 	$result=mysqli_query($mysqli,$query);
 	if (mysqli_num_rows($result) ==1 )  {
 	
@@ -167,7 +167,7 @@ if (isset($_GET['logout'])) {
 
 
 	$userprofile=isset($_SESSION['UserID']);
-$query="SELECT * FROM parents WHERE UserID=('$userprofile')";
+$query="SELECT * FROM parent WHERE UserID=('$userprofile')";
  $result= mysqli_query($mysqli, $query);
  $col= mysqli_fetch_assoc($result);
 
