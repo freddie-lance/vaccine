@@ -59,7 +59,7 @@
 
 		</tr>
 
-		<?php $sql3="SELECT  * FROM  parents " ;
+		<?php $sql3="SELECT  * FROM  parent " ;
 		$result3=$mysqli->query($sql3);
 		if(mysqli_num_rows($result3)>=1){
 			while ($row3=$result3->fetch_assoc()) {
