@@ -121,7 +121,7 @@ ALTER TABLE `admin`
 ALTER TABLE `bookapp`
   ADD PRIMARY KEY (`AppoID`),
   ADD UNIQUE KEY `Time` (`Time`),
-  ADD KEY `parentsoapp` (`parentsID`),
+  ADD KEY `parentoapp` (`parentID`),
   ADD KEY `doctoparent` (`docID`);
 
 --
@@ -129,7 +129,7 @@ ALTER TABLE `bookapp`
 --
 ALTER TABLE `description`
   ADD PRIMARY KEY (`X`),
-  ADD KEY `descpatientID` (`descID`),
+  ADD KEY `descparentID` (`descID`),
   ADD KEY `descDoctorID` (`doctorIDdesc`);
 
 --
@@ -148,7 +148,7 @@ ALTER TABLE `feedback`
 --
 -- Indexes for table `parents`
 --
-ALTER TABLE `parents`
+ALTER TABLE `parent`
   ADD PRIMARY KEY (`UserID`);
 
 --
@@ -176,7 +176,7 @@ ALTER TABLE `doctor`
 --
 -- AUTO_INCREMENT for table `parents`
 --
-ALTER TABLE `parents`
+ALTER TABLE `parent`
   MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -188,20 +188,20 @@ ALTER TABLE `parents`
 --
 ALTER TABLE `bookapp`
   ADD CONSTRAINT `doctoparent` FOREIGN KEY (`docID`) REFERENCES `doctor` (`DoctorID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `parentoapp` FOREIGN KEY (`parentID`) REFERENCES `parents` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `parentoapp` FOREIGN KEY (`parentID`) REFERENCES `parent` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `description`
 --
 ALTER TABLE `description`
   ADD CONSTRAINT `descDoctorID` FOREIGN KEY (`doctorIDdesc`) REFERENCES `doctor` (`DoctorID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `descparentID` FOREIGN KEY (`descID`) REFERENCES `parents` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `descparentID` FOREIGN KEY (`descID`) REFERENCES `parent` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `feedback`
 --
 ALTER TABLE `feedback`
-  ADD CONSTRAINT `feedback` FOREIGN KEY (`pID`) REFERENCES `parents` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `feedback` FOREIGN KEY (`pID`) REFERENCES `parent` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
