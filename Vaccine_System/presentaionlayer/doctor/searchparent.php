@@ -98,7 +98,7 @@
 
 		$PID =$mysqli -> real_escape_string($_POST['PID']);
 
-		$sqlP="SELECT  * FROM  patients   WHERE 	UserID=('$PID') OR Name=('$PID') " ;
+		$sqlP="SELECT  * FROM  parent   WHERE 	UserID=('$PID') OR Name=('$PID') " ;
 		$resultP=$mysqli->query($sqlP);
 		if(mysqli_num_rows($resultP)==1){
 			while ($rowP=$resultP->fetch_assoc()) {
